@@ -17,5 +17,5 @@ main: possui a solução final
 04-finalizacao: projeto finalizado adicionando detalhes finais e a lógica de embaralhar as cartas
 gh-pages: deploy do projeto
 
-###Idioma
+### Idioma
 Para fins didádicos, todo o projeto foi feito em português.
