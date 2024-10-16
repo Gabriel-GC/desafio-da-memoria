@@ -1,9 +1,9 @@
-import './index.css';
+import { JogoDaMemoria } from './components/JogoDaMemoria';
 
 function App() {
   return (
-    <div>
-      <h1>hello, i'm on!</h1>
+    <div className='App'>
+      <JogoDaMemoria/>
     </div>
   );
 }
