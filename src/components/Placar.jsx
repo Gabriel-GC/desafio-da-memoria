@@ -1,7 +1,11 @@
+import { useJogoDaMemoria } from "../hooks/useJogoDaMemoria";
+
 export const Placar = () => {
+  const {quantidadeDeCartasViradas, quantidadeDePontos} = useJogoDaMemoria();
+
   return <div className="placar">
-    <Pontos titulo="Pontos" valor={0}/>
-    <Pontos titulo="Cartas viradas" valor={0}/>
+    <Pontos titulo="Pontos" valor={quantidadeDePontos}/>
+    <Pontos titulo="Cartas viradas" valor={quantidadeDeCartasViradas}/>
   </div>;
 };
 
