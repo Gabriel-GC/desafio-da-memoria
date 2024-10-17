@@ -89,10 +89,11 @@ a:hover {
   width: 100%;
   height: 100%;
   transition: transform 0.8s;
-  transform-style: preserve-3d
+  transform-style: preserve-3d;
 }
 
-.carta__frente, .carta__costas {
+.carta__frente,
+.carta__costas {
   width: 100%;
   height: 100%;
   border-radius: 0.5rem;
@@ -104,13 +105,41 @@ a:hover {
   backface-visibility: hidden;
 }
 
-.carta__frente{
+.carta__frente {
   background-color: #bbb;
 }
 .carta__costas {
   transform: rotateY(180deg);
 }
 
-.carta:hover .carta__conteudo{
+.carta:hover .carta__conteudo {
   transform: rotateY(180deg);
+}
+
+.resultado {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  visibility: hidden;
+}
+.resultado__box {
+  padding: 1rem 2rem;
+  background-color: #333;
+  border-radius: 1rem;
+  text-align: center;
+}
+
+.resultado__aberto{
+  opacity: 1;
+  visibility: visible;
 }
