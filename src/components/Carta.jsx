@@ -1,21 +1,28 @@
-import { useJogoDaMemoria } from "../hooks/useJogoDaMemoria"
+import classNames from 'classnames';
+import { useJogoDaMemoria } from '../hooks/useJogoDaMemoria';
 
 export const Carta = ({id, idDopar, imagem}) => {
 
-    const {virarCarta} = useJogoDaMemoria()
+  const {virarCarta, idsDasCartasViradas} = useJogoDaMemoria();
 
-    const controlarClique = () => {
-        virarCarta({id, idDopar})
-    }
+  const controlarClique = () => {
+    virarCarta({id, idDopar});
+  };
 
-    return (
-        <button  id={id} className="carta" onClick={controlarClique}>
-            <div className="carta__conteudo">
-                <div className="carta__frente"></div>
-                <div className="carta__costas">
-                    <img src={imagem} alt={`Carta ${id}`} width={300} />
-                </div>
-            </div>
-        </button>
-    )
-}
+
+  const cartaViarada = idsDasCartasViradas.includes(id);
+
+  const cn = classNames('carta', {
+    'carta--virada': cartaViarada,});
+
+  return (
+    <button  id={id} className={cn} onClick={controlarClique}>
+      <div className="carta__conteudo">
+        <div className="carta__frente"></div>
+        <div className="carta__costas">
+          <img src={imagem} alt={`Carta ${id}`} width={300} />
+        </div>
+      </div>
+    </button>
+  );
+};

@@ -1,4 +1,4 @@
-import { useJogoDaMemoria } from "../hooks/useJogoDaMemoria";
+import { useJogoDaMemoria } from '../hooks/useJogoDaMemoria';
 
 export const Placar = () => {
   const {quantidadeDeCartasViradas, quantidadeDePontos} = useJogoDaMemoria();

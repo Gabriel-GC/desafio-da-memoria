@@ -1,8 +1,8 @@
-import { paresDeCartas } from "../constants/cartas";
-import { Carta } from "./Carta";
-import { Placar } from "./Placar";
-import { Resultado } from "./Resultado";
-import { LogicaJogoDaMemoriaProvider } from "../contexts/LogicaJogoDaMemoria";
+import { paresDeCartas } from '../constants/cartas';
+import { Carta } from './Carta';
+import { Placar } from './Placar';
+import { Resultado } from './Resultado';
+import { LogicaJogoDaMemoriaProvider } from '../contexts/LogicaJogoDaMemoria';
 
 export const JogoDaMemoria = () => {
   return (
