@@ -1,6 +1,7 @@
 import { paresDeCartas } from "../constants/cartas";
 import { Carta } from "./Carta";
 import { Placar } from "./Placar";
+import { Resultado } from "./Resultado";
 
 export const JogoDaMemoria = () => {
   return (
@@ -15,6 +16,7 @@ export const JogoDaMemoria = () => {
           ))}
         </div>
       </div>
+      <Resultado />
     </div>
   );
 };
