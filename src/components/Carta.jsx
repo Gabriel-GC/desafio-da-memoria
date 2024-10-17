@@ -3,17 +3,19 @@ import { useJogoDaMemoria } from '../hooks/useJogoDaMemoria';
 
 export const Carta = ({id, idDopar, imagem}) => {
 
-  const {virarCarta, idsDasCartasViradas} = useJogoDaMemoria();
+  const {virarCarta, idsDasCartasViradas, idsDosParesEncontrados} = useJogoDaMemoria();
 
   const controlarClique = () => {
     virarCarta({id, idDopar});
   };
 
-
-  const cartaViarada = idsDasCartasViradas.includes(id);
+  const cartaEncontrada = idsDosParesEncontrados.includes(idDopar)
+  const cartaViarada = cartaEncontrada || idsDasCartasViradas.includes(id);
+  const bloqueado = cartaViarada;
 
   const cn = classNames('carta', {
-    'carta--virada': cartaViarada,});
+    'carta--virada': cartaViarada,
+  });
 
   return (
     <button  id={id} className={cn} onClick={controlarClique}>
