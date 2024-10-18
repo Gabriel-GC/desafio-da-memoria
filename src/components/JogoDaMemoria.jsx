@@ -1,8 +1,9 @@
-import { paresDeCartas } from '../constants/cartas';
-import { Carta } from './Carta';
-import { Placar } from './Placar';
-import { Resultado } from './Resultado';
-import { LogicaJogoDaMemoriaProvider } from '../contexts/LogicaJogoDaMemoria';
+import { Carta } from "./Carta";
+import { Placar } from "./Placar";
+import { Resultado } from "./Resultado";
+import { LogicaJogoDaMemoriaProvider } from "../contexts/LogicaJogoDaMemoria";
+import { useJogoDaMemoria } from "../hooks/useJogoDaMemoria";
+import { useEffect } from "react";
 
 export const JogoDaMemoria = () => {
   return (
@@ -13,6 +14,12 @@ export const JogoDaMemoria = () => {
 };
 
 export const JogoDaMemoriaConteudo = () => {
+  const { cartas, iniciarJogo } = useJogoDaMemoria();
+  
+  useEffect(() => {
+    iniciarJogo();
+  }, []);
+  
   return (
     // titulo, placar e as cartas
     <div className="jogo-da-memoria">
@@ -20,7 +27,7 @@ export const JogoDaMemoriaConteudo = () => {
         <h1>Jogo da Memória</h1>
         <Placar />
         <div className="jogo-da-memoria__cartas">
-          {paresDeCartas.map((carta) => (
+          {cartas.map((carta) => (
             <Carta key={carta.id} {...carta} />
           ))}
         </div>

@@ -9,20 +9,22 @@ export const Carta = ({id, idDopar, imagem}) => {
     virarCarta({id, idDopar});
   };
 
-  const cartaEncontrada = idsDosParesEncontrados.includes(idDopar)
-  const cartaViarada = cartaEncontrada || idsDasCartasViradas.includes(id);
-  const bloqueado = cartaViarada;
+  const cartaEncontrada = idsDosParesEncontrados.includes(idDopar);
+
+  const cartaVirada = cartaEncontrada || idsDasCartasViradas.includes(id);
+
+  const bloqueado = cartaVirada;
 
   const cn = classNames('carta', {
-    'carta--virada': cartaViarada,
+    'carta--virada': cartaVirada,
   });
 
   return (
-    <button  id={id} className={cn} onClick={controlarClique}>
+    <button  id={id} className={cn} onClick={controlarClique} disabled={bloqueado}>
       <div className="carta__conteudo">
         <div className="carta__frente"></div>
         <div className="carta__costas">
-          <img src={imagem} alt={`Carta ${id}`} width={300} />
+          <img src={imagem} alt={idDopar} width={300} />
         </div>
       </div>
     </button>

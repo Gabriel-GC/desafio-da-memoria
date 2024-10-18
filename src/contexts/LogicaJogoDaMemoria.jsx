@@ -1,10 +1,11 @@
 import { createContext, useState } from "react";
+import { paresDeCartas } from "../constants/cartas";
+import { PONTOS, TEMPO_MS } from "../constants/configuracoes";
 
 export const LogicaJogoDaMemoriaContext = createContext();
 
 export const LogicaJogoDaMemoriaProvider = ({ children }) => {
   const [cartas, definirCartas] = useState([]);
-
   const [idsDosParesEncontrados, definirIdsDosParesEncontrados] = useState([]);
   const [idsDasCartasViradas, definirIdDasCartasViradas] = useState([]);
 
@@ -18,24 +19,50 @@ export const LogicaJogoDaMemoriaProvider = ({ children }) => {
     definirQuantidadeDeCartasViradas((quantidade) => quantidade + 1);
   };
 
+  const incrementarPontos = () => {
+    definirQuantidadeDePontos(pontos => pontos + PONTOS.ENCONTRAR_CARTA);
+  };
+  
+  const iniciarJogo = () => {
+    definirCartas(paresDeCartas);
+  }
+
+  const compararCartas = ([id1, id2]) => {
+    const idPar1 = cartas.find(({ id }) => id === id1)?.idDoPar;
+    const idPar2 = cartas.find(({ id }) => id === id2)?.idDoPar;
+    // console.log(id1, id2)
+    // console.log(cartas.find(({ id }) => id === id1),cartas.find(({ id }) => id === id2))
+    return idPar1 === idPar2;
+  };
+
   const virarCarta = ({ id, idDoPar }) => {
     incrementarQuantidadeDeCartasViradas();
-
+    
     const cartaJaVirada =
       idsDasCartasViradas.includes(id) ||
       idsDosParesEncontrados.includes(idDoPar);
+
     if (cartaJaVirada) return;
 
     if (idsDasCartasViradas.length >= 2) {
       return;
     }
 
-    if (idsDasCartasViradas.length == 0) {
+    if (idsDasCartasViradas.length === 0) {
       return definirIdDasCartasViradas([id]);
     }
-    definirIdDasCartasViradas((ids) => [ids[0], id]);
-    //Fas as cartas voltarem viradas depois de 2s
-    const tempo = 2000;
+
+    const ids = [idsDasCartasViradas[0], id];
+    
+    definirIdDasCartasViradas(ids);
+
+    const cartasIguais = compararCartas(ids);
+    if (cartasIguais) {
+      incrementarPontos();
+      definirIdsDosParesEncontrados(ids => [...ids, idDoPar]);
+    }
+    //Fas as cartas voltarem viradas depois de 1s, se as cartas forem igual tempo zera
+    const tempo = cartasIguais ? 0 : TEMPO_MS.VIRAR_CARTAS;
 
     setTimeout(() => {
       definirIdDasCartasViradas([]);
@@ -49,7 +76,8 @@ export const LogicaJogoDaMemoriaProvider = ({ children }) => {
 
     quantidadeDeCartasViradas,
     quantidadeDePontos,
-
+    
+    iniciarJogo,
     virarCarta,
   };
   return (
