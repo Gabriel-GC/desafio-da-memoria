@@ -1,15 +1,15 @@
 import classNames from 'classnames';
 import { useJogoDaMemoria } from '../hooks/useJogoDaMemoria';
 
-export const Carta = ({id, idDopar, imagem}) => {
+export const Carta = ({id, idDoPar, imagem}) => {
 
   const {virarCarta, idsDasCartasViradas, idsDosParesEncontrados} = useJogoDaMemoria();
 
   const controlarClique = () => {
-    virarCarta({id, idDopar});
+    virarCarta({id, idDoPar});
   };
 
-  const cartaEncontrada = idsDosParesEncontrados.includes(idDopar);
+  const cartaEncontrada = idsDosParesEncontrados.includes(idDoPar);
 
   const cartaVirada = cartaEncontrada || idsDasCartasViradas.includes(id);
 
@@ -24,7 +24,7 @@ export const Carta = ({id, idDopar, imagem}) => {
       <div className="carta__conteudo">
         <div className="carta__frente"></div>
         <div className="carta__costas">
-          <img src={imagem} alt={idDopar} width={300} />
+          <img src={imagem} alt={idDoPar} width={300} />
         </div>
       </div>
     </button>

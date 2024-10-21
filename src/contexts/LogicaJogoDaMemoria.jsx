@@ -23,15 +23,16 @@ export const LogicaJogoDaMemoriaProvider = ({ children }) => {
     definirQuantidadeDePontos(pontos => pontos + PONTOS.ENCONTRAR_CARTA);
   };
   
-  const iniciarJogo = () => {
+  const iniciarJogo  =  () => {
     definirCartas(paresDeCartas);
   }
+
+  const registrarParEncontrado = (idDoPar) =>
+    definirIdsDosParesEncontrados((ids) => [...ids, idDoPar]);
 
   const compararCartas = ([id1, id2]) => {
     const idPar1 = cartas.find(({ id }) => id === id1)?.idDoPar;
     const idPar2 = cartas.find(({ id }) => id === id2)?.idDoPar;
-    // console.log(id1, id2)
-    // console.log(cartas.find(({ id }) => id === id1),cartas.find(({ id }) => id === id2))
     return idPar1 === idPar2;
   };
 
@@ -52,14 +53,15 @@ export const LogicaJogoDaMemoriaProvider = ({ children }) => {
       return definirIdDasCartasViradas([id]);
     }
 
-    const ids = [idsDasCartasViradas[0], id];
-    
+    const id1 = idsDasCartasViradas[0];
+    const id2 = id;
+    const ids = [id1, id2];
     definirIdDasCartasViradas(ids);
 
     const cartasIguais = compararCartas(ids);
     if (cartasIguais) {
       incrementarPontos();
-      definirIdsDosParesEncontrados(ids => [...ids, idDoPar]);
+      registrarParEncontrado(idDoPar); //********************************* */
     }
     //Fas as cartas voltarem viradas depois de 1s, se as cartas forem igual tempo zera
     const tempo = cartasIguais ? 0 : TEMPO_MS.VIRAR_CARTAS;
