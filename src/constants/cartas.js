@@ -5,6 +5,8 @@ const imagens = [
   "carta-4.jpg",
   "carta-5.jpg",
   "carta-6.jpg",
+
+
 ];
 
 const cartasUnicas = imagens.map((imagem, idDoPar) => ({

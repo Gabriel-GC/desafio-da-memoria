@@ -15,28 +15,22 @@
   -webkit-text-size-adjust: 100%;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
 
 .button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
+  color: #333;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #ffffff;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: 0.25s;
 }
 .button:hover {
-  border-color: #646cff;
+  background-color: #72b0f7;
+  color: #ffffff;
 }
 .button:focus,
 .button:focus-visible {
@@ -54,7 +48,7 @@ a:hover {
 .jogo-da-memoria__cartas {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
+  gap: 12px;
 }
 
 .placar {
@@ -78,6 +72,11 @@ a:hover {
   background-color: transparent;
   padding: 0;
   cursor: pointer;
+  transition: 0.2s;
+}
+
+.carta:hover {
+  transform: scale(1.05);
 }
 
 .carta img {
@@ -96,7 +95,7 @@ a:hover {
 .carta__costas {
   width: 100%;
   height: 100%;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   overflow: hidden;
   position: absolute;
   left: 0;
@@ -106,7 +105,9 @@ a:hover {
 }
 
 .carta__frente {
-  background-color: #bbb;
+  background-image: url(../public/back-card.jpg);
+  background-position: center;
+  background-size: cover;
 }
 .carta__costas {
   transform: rotateY(180deg);
@@ -134,7 +135,7 @@ a:hover {
 }
 .resultado__box {
   padding: 1rem 2rem;
-  background-color: #333;
+  background-color: #242424;
   border-radius: 1rem;
   text-align: center;
 }
@@ -142,4 +143,13 @@ a:hover {
 .resultado__aberto{
   opacity: 1;
   visibility: visible;
+}
+
+.embaralhando__cartas{
+  display: flex;
+  flex-direction: column;
+}
+
+.embaralhando__cartas img{
+  border-radius: 10px;
 }

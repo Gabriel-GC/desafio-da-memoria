@@ -1,7 +1,7 @@
 import { paresDeCartas } from "../constants/cartas";
 
 export const buscarCartas = async () => {
-  await delay(1000);
+  await delay(2000);
   return embaralharLista(paresDeCartas);
 };
 

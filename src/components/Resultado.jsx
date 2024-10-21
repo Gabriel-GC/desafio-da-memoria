@@ -32,7 +32,7 @@ export const Resultado = () => {
         <img
           src={resultado?.imagem}
           alt="Image referente ao nível de memória"
-          height={150}
+          height={200}
         />
         <p>
           <strong>Taxa de acertos: </strong>

@@ -4,6 +4,7 @@ import { Resultado } from "./Resultado";
 import { LogicaJogoDaMemoriaProvider } from "../contexts/LogicaJogoDaMemoria";
 import { useJogoDaMemoria } from "../hooks/useJogoDaMemoria";
 import { useEffect } from "react";
+import Gif from "../assets/load.gif"
 
 export const JogoDaMemoria = () => {
   return (
@@ -27,7 +28,10 @@ export const JogoDaMemoriaConteudo = () => {
         <h1>Jogo da Memória</h1>
         <Placar />
         {carregandoCartas ? (
-          <p>Embaralhando as cartas...</p>
+          <div className="embaralhando__cartas">
+            <img src={Gif} alt="" />
+            <p>Embaralhando as cartas...</p>
+          </div>
         ) : (
           <div className="jogo-da-memoria__cartas">
             {cartas.map((carta) => (
