@@ -27,6 +27,14 @@ export const LogicaJogoDaMemoriaProvider = ({ children }) => {
     definirCartas(paresDeCartas);
   }
 
+  const reinicarJogo= () => {
+    definirIdsDosParesEncontrados([]);
+    definirIdDasCartasViradas([]);
+    definirCartas(paresDeCartas);
+    definirQuantidadeDeCartasViradas(0);
+
+  }
+
   const registrarParEncontrado = (idDoPar) =>
     definirIdsDosParesEncontrados((ids) => [...ids, idDoPar]);
 
@@ -81,6 +89,7 @@ export const LogicaJogoDaMemoriaProvider = ({ children }) => {
     
     iniciarJogo,
     virarCarta,
+    reinicarJogo,
   };
   return (
     <LogicaJogoDaMemoriaContext.Provider value={valor}>
