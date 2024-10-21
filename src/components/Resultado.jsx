@@ -11,10 +11,12 @@ export const Resultado = () => {
     reinicarJogo,
   } = useJogoDaMemoria();
 
-  const jogoFinalizou = cartas.length === idsDosParesEncontrados.length * 2;
-
+  const jogoAberto = useMemo(
+    () => cartas.length > 0 && cartas.length === idsDosParesEncontrados.length * 2,
+    [idsDosParesEncontrados.length]
+  );
   const cn = classNames("resultado", {
-    resultado__aberto: jogoFinalizou,
+    resultado__aberto: jogoAberto,
   });
 
   const taxaDeAcertos = (cartas.length / quantidadeDeCartasViradas) * 100;

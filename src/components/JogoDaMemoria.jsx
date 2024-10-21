@@ -14,23 +14,27 @@ export const JogoDaMemoria = () => {
 };
 
 export const JogoDaMemoriaConteudo = () => {
-  const { cartas, iniciarJogo } = useJogoDaMemoria();
-  
+  const { cartas, iniciarJogo, carregandoCartas } = useJogoDaMemoria();
+
   useEffect(() => {
     iniciarJogo();
   }, []);
-  
+
   return (
     // titulo, placar e as cartas
     <div className="jogo-da-memoria">
       <div className="jogo-da-memoria__conteudo">
         <h1>Jogo da Memória</h1>
         <Placar />
-        <div className="jogo-da-memoria__cartas">
-          {cartas.map((carta) => (
-            <Carta key={carta.id} {...carta} />
-          ))}
-        </div>
+        {carregandoCartas ? (
+          <p>Embaralhando as cartas...</p>
+        ) : (
+          <div className="jogo-da-memoria__cartas">
+            {cartas.map((carta) => (
+              <Carta key={carta.id} {...carta} />
+            ))}
+          </div>
+        )}
       </div>
       <Resultado />
     </div>

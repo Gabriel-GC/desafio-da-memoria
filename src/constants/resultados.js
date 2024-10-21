@@ -10,7 +10,7 @@ export const resultados = [
         min: 50,
     },
     {
-        titulo: "Esquecico",
+        titulo: "Esquecido",
         imagem: "monkey-2.png",
         min: 25,
     },
