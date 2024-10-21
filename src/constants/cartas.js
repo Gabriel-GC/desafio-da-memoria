@@ -5,6 +5,8 @@ const imagens = [
   "carta-4.jpg",
   "carta-5.jpg",
   "carta-6.jpg",
+  "carta-7.jpg",
+  "carta-8.jpg",
 
 
 ];
