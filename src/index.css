@@ -153,3 +153,10 @@
 .embaralhando__cartas img{
   border-radius: 10px;
 }
+
+@media screen and (max-width: 768px) {
+.jogo-da-memoria__cartas {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+}
