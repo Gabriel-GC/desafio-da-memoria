@@ -1,3 +1,8 @@
+## Resolução
+![Toy Story Memory - Google Chrome 2024-10-22 09-10-05](https://github.com/user-attachments/assets/fc449f4b-8dac-4765-af2b-a2b4d58c62b6)
+
+## Link: https://toystorymemory.netlify.app/
+
 # DESAFIO: Jogo da Memória
 Nesse desafio você terá que recriar o clássico jogo da memória, usando a seguinte stack (tecnologias):
 
@@ -45,13 +50,7 @@ Se possível, publique o seu projeto para que possamos testar a interface e func
 
 **Boa Sorte!**
 
-## Desafio Extra
 
-- Trocar quantidade de cartas
-- Adicionar limite de rodadas
-- Adicionar tempo
-- Cartas reveladas voltam ao jogo como cartas "bomba". Se duas cartas "bomba" forem encontradas, você perde rodadas (vida)
-- Adicionar combo de pontuação, cada par encontrado em sequência adiciona um multiplicador de pontos
-- Criar fases para um compor um jogo mais completo
-- Adicionar efeitos sonoros
-- Adicionar efeitos visuais
+
+
+
