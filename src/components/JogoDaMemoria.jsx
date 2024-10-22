@@ -25,7 +25,8 @@ export const JogoDaMemoriaConteudo = () => {
     // titulo, placar e as cartas
     <div className="jogo-da-memoria">
       <div className="jogo-da-memoria__conteudo">
-        <h1>Jogo da Memória</h1>
+        <h1>Toy Story Memory</h1>
+        <p>Junte os pares de imagens, faça pontos e veja seu nível de memória.</p>
         <Placar />
         {carregandoCartas ? (
           <div className="embaralhando__cartas">

@@ -15,7 +15,6 @@
   -webkit-text-size-adjust: 100%;
 }
 
-
 .button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -41,13 +40,13 @@
   padding: 1rem;
 }
 .jogo-da-memoria__conteudo {
-  max-width: 600px;
+  max-width: 1080px;
   margin: 0 auto;
 }
 
 .jogo-da-memoria__cartas {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(8, 1fr);
   gap: 12px;
 }
 
@@ -140,23 +139,40 @@
   text-align: center;
 }
 
-.resultado__aberto{
+.resultado__aberto {
   opacity: 1;
   visibility: visible;
 }
 
-.embaralhando__cartas{
+.embaralhando__cartas {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
-.embaralhando__cartas img{
+.embaralhando__cartas img {
   border-radius: 10px;
+  width: 50%;
 }
 
 @media screen and (max-width: 768px) {
-.jogo-da-memoria__cartas {
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-}
+  .resultado {
+    padding: 0;
+  }
+  .jogo-da-memoria__cartas {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+  .jogo-da-memoria__conteudo {
+    max-width: 600px;
+  }
+  .embaralhando__cartas {
+    align-items: flex-start;
+  }
+  .embaralhando__cartas img {
+    width: 100%;
+  }
+  .jogo-da-memoria__conteudo h1, p {
+    text-align: center;
+  }
 }
